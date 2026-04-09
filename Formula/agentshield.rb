@@ -11,8 +11,8 @@ class Agentshield < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/security-researcher-ca/agentshield/internal/cli.Version=#{version}
-      -X github.com/security-researcher-ca/agentshield/internal/cli.Commit=#{Utils.git_short_head}
+      -X github.com/AI-AgentLens/agentshield/internal/cli.Version=#{version}
+      -X github.com/AI-AgentLens/agentshield/internal/cli.Commit=#{Utils.git_short_head}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/agentshield"
 
