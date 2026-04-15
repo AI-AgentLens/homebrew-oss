@@ -21,6 +21,20 @@ class Agentshield < Formula
     (share/"agentshield/packs/mcp").install Dir["packs/community/mcp/*.yaml"]
   end
 
+  def post_install
+    # Copy packs to ~/.agentshield/packs/ where the engine expects them
+    packs_dst = File.expand_path("~/.agentshield/packs")
+    FileUtils.mkdir_p(packs_dst)
+    Dir.glob("#{share}/agentshield/packs/*.yaml").each do |f|
+      FileUtils.cp(f, packs_dst)
+    end
+    mcp_dst = File.join(packs_dst, "mcp")
+    FileUtils.mkdir_p(mcp_dst)
+    Dir.glob("#{share}/agentshield/packs/mcp/*.yaml").each do |f|
+      FileUtils.cp(f, mcp_dst)
+    end
+  end
+
   def caveats
     <<~EOS
       AgentShield OSS installed. Quick start:
