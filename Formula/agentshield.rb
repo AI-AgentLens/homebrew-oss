@@ -19,6 +19,11 @@ class Agentshield < Formula
     # Install community packs to share directory
     (share/"agentshield/packs").install Dir["packs/community/*.yaml"]
     (share/"agentshield/packs/mcp").install Dir["packs/community/mcp/*.yaml"]
+
+    # Install IDE wrapper script (used by Cursor/Windsurf shell integration;
+    # also referenced by `agentshield scan` to verify install completeness).
+    (share/"agentshield").install "scripts/agentshield-wrapper.sh"
+    chmod 0755, share/"agentshield/agentshield-wrapper.sh"
   end
 
   def post_install
