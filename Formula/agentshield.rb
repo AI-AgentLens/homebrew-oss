@@ -2,7 +2,7 @@ class Agentshield < Formula
   desc "Open-source runtime security gateway for AI coding agents"
   homepage "https://github.com/AI-AgentLens/agentshield-oss"
   url "https://github.com/AI-AgentLens/agentshield-oss.git", branch: "main"
-  version "0.3.202604290152"
+  version "0.3.202604290206"
   license "Apache-2.0"
   head "https://github.com/AI-AgentLens/agentshield-oss.git", branch: "main"
 
